@@ -94,13 +94,11 @@
  '(nrepl-host "localhost")
  '(package-selected-packages
    (quote
-    (eproject helm-swoop smart-mode-line-powerline-theme smart-mode-line flycheck-joker html-to-hiccup flx-ido ag avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode ack-and-a-half projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
+    (exec-path-from-shell eproject helm-swoop smart-mode-line-powerline-theme smart-mode-line flycheck-joker html-to-hiccup flx-ido ag avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode ack-and-a-half projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
-    ((cider-refresh-after-fn . "cognician.manage.dev-server/start-service!")
-     (cider-refresh-before-fn . "cognician.manage.dev-server/stop-service!")
-     (cider-refresh-after-fn . "user/start-service!")
+    ((cider-refresh-after-fn . "user/start-service!")
      (cider-refresh-before-fn . "user/stop-service!")
      (cider-refresh-after-fn . "user/start-web!")
      (cider-refresh-before-fn . "user/stop-web!")
@@ -374,3 +372,11 @@
 
 ;; Indentation
 (setq scss-indent-level 2)
+
+(setq projectile-require-project-root nil)
+
+(add-to-list 'load-path "~/Applications/emacs-neotree")
+(require 'neotree)
+(global-set-key [f12] 'neotree-toggle)
+(neotree-show)
+(neotree-dir "~/Code/Cognician")
